@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./bmxui
+      dockerfile: Dockerfile
+    ports:
+      - '3000:80'
+    depends_on:
+      - bmxapi
+
+  bmxapi:
+    build:
+      context: ./bmxapi
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
